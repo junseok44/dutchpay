@@ -3,17 +3,20 @@ import { Button, Container, Form, Row } from "react-bootstrap";
 import CenteredOverlay from "./CenteredOverlay";
 import styled from "styled-components";
 import { StyledRow } from "./Create_Group";
+import { Link } from "react-router-dom";
 
 const CenteredOverlayForm = ({
   title,
   children,
   validated,
   handleSubmit,
+  to,
 }: {
   children: JSX.Element;
   title: string;
   validated: boolean;
   handleSubmit: (e: React.FormEvent) => void;
+  to: string;
 }) => {
   return (
     <CenteredFormContainer>
@@ -44,12 +47,6 @@ const CenteredFormContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const StyledCentralizedContent = styled(Row)`
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
 `;
 
 const StyledSubmitButton = styled(Button).attrs({

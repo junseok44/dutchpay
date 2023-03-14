@@ -1,0 +1,41 @@
+1. 관대하게 반내림할것인지. 아니면 그냥 정확하게 할것인지.
+그걸 옵션으로 선택할 수 있도록.
+
+2. 지금은 각 user별로 account가 있음
+{
+    a: {
+        b: 1200,
+        c: 1000,
+    },
+    b: {
+        a: -1200
+        c: 2000
+    },
+    c: {
+        a: -1000,
+        b: -2000
+    }
+}
+이런식임.
+
+그런데 강의에서처럼. 거래 단위로 보기 위해서는?
+a의 bc를 제거하면. a-b a-c 가 청산되었으니까 b-c 해주면 됨.
+
+4명있을때는?
+
+a-b, a-c, a-d, b-c, b-d, c-d 이런식임.
+
+for(member).map(
+    if(result[member][other] = 0) return;
+    
+    push({sender: member or other, reciever: member or reciever, expense})
+
+    result[member][other] = 0 
+    result[other][member] = 0
+)
+
+
+이 데이터를 못쓰고 원래 데이터로 돌아가야 하나?
+
+
+[{2000,a}, {12000,b}, {25000,b}, {15000,c}] 

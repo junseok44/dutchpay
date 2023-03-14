@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+민영 3000원
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+나 12000원
 
-## Available Scripts
+재연 15000원을 썼다고 가정하자.
 
-In the project directory, you can run:
+민영 3000원
 
-### `npm start`
+나 -> 민영 1000원
+재연 -> 민영 1000원
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+나 12000원
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+민영 -> 나 4000원
+재연 -> 나 4000원
 
-### `npm test`
+재연 15000원
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+나 -> 재연 5000원
+민영 -> 재연 5000원
 
-### `npm run build`
+나의 계좌
+b: -1000
+b: +4000
+c: +4000
+c: -5000
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+--> b: 3000 c: -1000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+데이터형식은
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+{
+"준석": {
+"재연": -1000,
+"민영": +3000
+},
+"민영": {
 
-### `npm run eject`
+    }
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+하나의 리스트
+[{user, expense}]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+가 있으면
+본 user의 객체에는 다른 user들에게 expense/groupmembers.length - 1을 더하고
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+다른 user들의 객체에는 그 user에 해당하는 객체에게 +1을 하게 해주는
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+이런식으로 담기도록.

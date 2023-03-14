@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from "react";
 import { Container, Form, Row, Button, Col } from "react-bootstrap";
+import { redirect, useNavigate } from "react-router-dom";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { ROUTES } from "../routes";
 import { GroupNameAtom } from "../state/groupName";
 import CenteredOverlay from "./CenteredOverlay";
 import CenteredOverlayForm from "./CenteredOverlayForm";
@@ -9,7 +11,7 @@ import CenteredOverlayForm from "./CenteredOverlayForm";
 const Create_Group = () => {
   const [groupName, setGroupName] = useRecoilState<string>(GroupNameAtom);
   const [validated, setValidated] = useState(false);
-
+  const navigate = useNavigate();
   const onChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setGroupName(e.target.value);
@@ -17,15 +19,16 @@ const Create_Group = () => {
     [setGroupName]
   );
 
-  const handleSubmit = useCallback((event: any) => {
+  const handleSubmit = (event: any) => {
     const form = event.target;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+    event.preventDefault();
+    if (groupName) {
+      console.log("hello");
+      navigate(ROUTES.ADD_MEMBERS);
     }
 
     setValidated(true);
-  }, []);
+  };
 
   return (
     <>
@@ -33,6 +36,7 @@ const Create_Group = () => {
         title="그룹 이름을 입력해보세요"
         validated={validated}
         handleSubmit={handleSubmit}
+        to="/members"
       >
         <StyledRow>
           <Form.Group controlId="validationGroupName">
